@@ -27,16 +27,17 @@ export default {
         onUploadProgress: null,
         withCredentials: true,
         headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + localStorage.getItem('token'),
           // 'lzcookie': queryString.stringify(cookie)
         },
       }).then((response) => {
         if (response) {
           const res = response.data;
           // console.log(res);
-          if (res && res.errno === ajaxRetCode.success) {
+          if (res && res.code === 200) {
             resolve(res.data);
-          } else if (res && res.errno === ajaxRetCode.noLogin) {
+          } else if (res && res.code === 401) {
             message.error('请先登录');
             reject(res);
           } else {
@@ -53,20 +54,21 @@ export default {
       Axios({
         method: 'post',
         url: urlPath,
-        data: queryString.stringify(params),
+        data: params,
         onDownloadProgress: null,
         onUploadProgress: null,
         withCredentials: true,
         headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + localStorage.getItem('token'),
           // 'lzcookie': queryString.stringify(cookie)
         },
       }).then((response) => {
         if (response) {
           const res = response.data;
-          if (res && res.errno === ajaxRetCode.success) {
+          if (res && res.code === 200) {
             resolve(res.data);
-          } else if (res && res.errno === ajaxRetCode.noLogin) {
+          } else if (res && res.code === 401) {
             message.error('请先登录');
             reject(res);
           } else {

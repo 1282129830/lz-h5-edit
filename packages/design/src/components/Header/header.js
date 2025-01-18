@@ -203,7 +203,7 @@ class Header extends React.Component {
           </li>
           <li className="item" onClick={this.onChangeModalMusicVisible(true)}>
             <Icon type="customer-service" className="icon" />
-            <div className="txt">音效</div>
+            <div className="txt">音乐</div>
           </li>
           <Popover content={<PSD dispatch={this.onUploadPsd} />} trigger="click">
             <li className="item">

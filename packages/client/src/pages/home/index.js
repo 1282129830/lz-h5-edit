@@ -19,8 +19,8 @@ export default () => {
     <div className="page-home">
       <div className="banner">
         <div className="title-left">
-          <h1 className="site-name">随心秀</h1>
-          <div className="sub-title">提供一款开源微场景编辑器解决方案</div>
+          <h1 className="site-name">槿墨H5</h1>
+          <div className="sub-title">是一款专为设计师打造的H5请帖模板制作工具，旨在提供一个简洁、高效的创作平台，帮助设计师快速制作和发布精美的请帖H5页面。该工具集成了丰富的模板库和高度自定义的设计选项，使得即使没有编程经验的设计师也能轻松上手。</div>
           <div className="line" />
           <div className="btn-container">
             <a href="#/list" className="m-r-12">
@@ -29,18 +29,11 @@ export default () => {
             <a href="#/create" className="m-r-12">
               <Button>体验创造</Button>
             </a>
-            <iframe
-              src="https://ghbtns.com/github-btn.html?user=lzuntalented&repo=lz-h5-edit&type=star&count=true&size=large"
-              frameBorder="0"
-              scrolling="0"
-              width="160px"
-              height="32px"
-            />
           </div>
           <div className="line" />
-          <div className="eq">
+          {/* <div className="eq">
             <img src="http://www.lzuntalented.cn/img/lzshow-logo.png" alt="" />
-          </div>
+          </div> */}
         </div>
         <div className="home-logo">
           <img src="http://www.lzuntalented.cn/img/home-log.png" alt="" width="100%" />

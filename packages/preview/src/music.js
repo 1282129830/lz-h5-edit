@@ -24,6 +24,15 @@ export default function MusicIcon(props) {
     const { current } = musicHandler;
     if (current) {
       current.setSrc(backMusicUrl);
+
+      // 监听音频播放状态
+      current.audio.addEventListener('play', () => {
+        setMusicPlay(true);
+      });
+      
+      current.audio.addEventListener('pause', () => {
+        setMusicPlay(false);
+      });
     }
     return () => {
       if (current) {
@@ -32,7 +41,8 @@ export default function MusicIcon(props) {
     };
   }, [backMusicUrl]);
 
-  return <div style={{ animationPlayState: musicPlay ? 'running' : 'paused' }} className="music-container" onClick={onPlay} />;
+  return <div style={{ animationPlayState: musicPlay ? 'running' : 'paused' }} 
+              className="music-container" onClick={onPlay}/>;
 }
 
 MusicIcon.propTypes = {

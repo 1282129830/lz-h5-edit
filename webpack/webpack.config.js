@@ -131,6 +131,13 @@ module.exports = {
     // 由于爱奇艺客户端使用9901端口，因此更换
     port: 9999,
     disableHostCheck: true, //  新增该配置项
+    proxy: {
+      '/server': {
+        target: 'http://localhost:8380', // 转发到后端服务
+        pathRewrite: {'^/server' : ''}, // 重写路径
+        changeOrigin: true // 支持跨域
+      }
+    }
   },
   plugins: [
     ...generatorHtmlPlugins(),

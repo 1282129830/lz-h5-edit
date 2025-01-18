@@ -9,18 +9,21 @@ let typeHandler = null;
 
 function QQVideo(props) {
   const {
-    text, bgColor, showStatus, ...ohters
+    text, bgColor, showStatus, typeSpeed, cursorChar, startDelay, ...ohters
   } = props;
   React.useEffect(() => {
     if (typeHandler) typeHandler.reset(true);
-  }, [text, showStatus]);
+  }, [text, showStatus, typeSpeed, cursorChar, startDelay]);
   return (
     <div style={{ backgroundColor: bgColor }}>
       <Typed
         typedRef={(typed) => { typeHandler = typed; }}
         style={{ ...ohters }}
         strings={[text]}
-        typeSpeed={40}
+        typeSpeed={Number(typeSpeed)}
+        startDelay={Number(startDelay)}
+        cursorChar={cursorChar}
+        showCursor={true}
       />
     </div>
   );
