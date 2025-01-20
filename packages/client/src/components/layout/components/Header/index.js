@@ -46,7 +46,7 @@ function LayoutFrame(props) {
     <Header className="layout-header-container">
     <Row className="default-header" type="flex" justify="space-between">
       <Col>
-        <img onClick={() => onClick({ key: '1' })} src="http://www.lzuntalented.cn/img/heart-logo.png" alt="" height="48" />
+        <img onClick={() => onClick({ key: '1' })} src="http://cdn.xiaodingdang1.com/2025/01/18/9246969f8e9d4814b0f34512b4644480.jpg" alt="" height="48" />
       </Col>
       <Col>
         <Row type="flex">
@@ -58,8 +58,8 @@ function LayoutFrame(props) {
               onSelect={onClick}
             >
               <Menu.Item key="1">首页</Menu.Item>
-              <Menu.Item key="3">模板商城</Menu.Item>
-              <Menu.Item key="2">作品集市</Menu.Item>
+              {/* <Menu.Item key="3">模板商城</Menu.Item> */}
+              {/* <Menu.Item key="2">作品集市</Menu.Item> */}
             </Menu>
           </Col>
           <Col>
@@ -79,7 +79,7 @@ function LayoutFrame(props) {
                       )}
                     icon={<Icon type="user" />}
                   >
-                    {info.name}
+                    {info.nickname}
                   </Dropdown.Button>
                 )
                 : <a href="#/login">登录</a>

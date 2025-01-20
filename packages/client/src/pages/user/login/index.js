@@ -16,10 +16,11 @@ function Login(props) {
     form.validateFields((err, value) => {
       if (err) return;
       // console.log(value); return;
+      value.clientid = '8ae3bc85-ea75-4b78-9ac3-a2cafad8e7d1';
       login(value).then((token) => {
         // const { id } = res;
         localStorage.setItem('token', token);
-        window.location.href = '/#/ucenter/info';
+        window.location.href = '/client.html#/ucenter/info';
         message.success('登录成功');
       }).catch((res) => {
         message.error(res && res.errmsg);
@@ -37,7 +38,7 @@ function Login(props) {
     <div className="page-login">
       <div className="home-logo">
         <img src="http://www.lzuntalented.cn/img/home-log.png" alt="" width="100%" />
-        <img src="http://www.lzuntalented.cn/img/heart-logo.png" alt="" height="48" />
+        <img src="http://cdn.xiaodingdang1.com/2025/01/18/9246969f8e9d4814b0f34512b4644480.jpg" alt="" height="48" />
       </div>
       <Form className="login-container">
         <Form.Item>

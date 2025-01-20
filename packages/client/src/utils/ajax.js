@@ -29,6 +29,7 @@ export default {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': 'Bearer ' + localStorage.getItem('token'),
+          'clientid': '8ae3bc85-ea75-4b78-9ac3-a2cafad8e7d1',
           // 'lzcookie': queryString.stringify(cookie)
         },
       }).then((response) => {
@@ -61,6 +62,7 @@ export default {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': 'Bearer ' + localStorage.getItem('token'),
+          'clientid': '8ae3bc85-ea75-4b78-9ac3-a2cafad8e7d1',
           // 'lzcookie': queryString.stringify(cookie)
         },
       }).then((response) => {

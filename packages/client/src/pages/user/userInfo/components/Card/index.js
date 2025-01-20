@@ -32,7 +32,7 @@ function Register(props) {
         </div>
       </div>
       <div className="card-title">
-        <div className="card-title-txt">未命名场景</div>
+        <div className="card-title-txt">{data.title}</div>
         <Row type="flex" justify="space-around" className="card-title-look">
           <Col>
             {data.pv || 0} pv

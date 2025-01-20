@@ -178,7 +178,7 @@ class Header extends React.Component {
         className="page-header-container"
       >
         <div className="example-container">
-          <img onClick={() => { window.location.hash = '/'; }} src="http://www.lzuntalented.cn/img/heart-logo.png" alt="" height="48" />
+          <img onClick={() => { window.location.hash = '/'; }} src="http://cdn.xiaodingdang1.com/2025/01/18/9246969f8e9d4814b0f34512b4644480.jpg" alt="" height="48" />
         </div>
         <ul className="ul-comp">
           <li className="item" onClick={this.onUndo}>
@@ -202,7 +202,7 @@ class Header extends React.Component {
             <div className="txt">背景</div>
           </li>
           <li className="item" onClick={this.onChangeModalMusicVisible(true)}>
-            <Icon type="customer-service" className="icon" />
+            <Icon type="sound" className="icon" />
             <div className="txt">音乐</div>
           </li>
           <Popover content={<PSD dispatch={this.onUploadPsd} />} trigger="click">
@@ -215,14 +215,6 @@ class Header extends React.Component {
         <ul className="publish-container">
           <Button type="danger" onClick={this.onPublish}>发布</Button>
           <Button type="primary" className="m-r-4" onClick={this.onPreview}>预览</Button>
-          <iframe
-            src="https://ghbtns.com/github-btn.html?user=lzuntalented&repo=lz-h5-edit&type=star&count=true"
-            frameBorder="0"
-            scrolling="0"
-            width="100px"
-            height="30px"
-            className="m-t-12"
-          />
         </ul>
         <ImageModal
           dispatch={dispatch}

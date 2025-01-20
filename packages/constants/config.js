@@ -5189,7 +5189,7 @@ export function get2020NewYear() {
           radius: 0,
         },
         attrs: {
-          imgSrc: 'http://www.lzuntalented.cn/img/heart-logo.png',
+          imgSrc: 'http://cdn.xiaodingdang1.com/2025/01/18/9246969f8e9d4814b0f34512b4644480.jpg',
         },
         type: 'COMPONENT_TYPE_PICTURE',
       },

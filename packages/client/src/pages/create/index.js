@@ -2,13 +2,18 @@ import React, { useEffect, useState } from 'react';
 import LzDesign from '@lzshow/design';
 import { message } from 'antd';
 import {
-  getPictureList, cropImage, save, getDetail, getMyPictureList,
+  getPictureList, cropImage, save, getMyPictureList,
 } from '../../services/create';
+
+import {
+  saveOrUpdate, getDetail
+} from '../../services/opus';
 import apiConfig, { getUrlPrefix } from '../../services/apiConfig';
 import WithUserAuth from '../../components/WithUserAuth'
 import { connect } from 'react-redux';
 
 function Create(props) {
+  const token = localStorage.getItem('token');
   // 库数据
   const libs = {
     psd: {
@@ -17,12 +22,16 @@ function Create(props) {
         accept: 'file',
         // showUploadList: false,
         action: `${getUrlPrefix()}${apiConfig.file.parsePsd}`,
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'clientid': '8ae3bc85-ea75-4b78-9ac3-a2cafad8e7d1',
+        }
       },
     },
     // 图片库
     picture: {
       initData: [
-        'http://show.lzuntalented.cn/server/static/pic/1589697724000-oev0vndl370c-1.jpg',
+        // 'http://show.lzuntalented.cn/server/static/pic/1589697724000-oev0vndl370c-1.jpg',
       ],
       fetchPromise: getPictureList,
       fetchMyList: getMyPictureList,
@@ -31,6 +40,10 @@ function Create(props) {
         accept: 'image/*',
         action: `${getUrlPrefix()}${apiConfig.file.upload}`,
         showUploadList: false,
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'clientid': '8ae3bc85-ea75-4b78-9ac3-a2cafad8e7d1',
+        }
       },
       cropImage,
     },
@@ -110,7 +123,12 @@ function Create(props) {
   };
 
   const onPublish = (data, title) => {
-    save({ content: data, title }).then(() => {
+
+    const params = { content: data, title };
+    if (id && id > 0) {
+      params.id = id;
+    }
+    saveOrUpdate(params).then(() => {
       window.location.hash = '#/ucenter/info';
       message.success('保存成功');
     });

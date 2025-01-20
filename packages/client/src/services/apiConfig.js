@@ -37,6 +37,12 @@ export default {
   activity: {
     getList: '/activity/getList',
   },
+  opus: {
+    getList: '/opus/getList',
+    getDetail: '/opus/getDetail',
+    saveOrUpdate: '/opus/saveOrUpdate',
+    remove: '/opus/remove',
+  },
 };
 
 export function isDaily() {

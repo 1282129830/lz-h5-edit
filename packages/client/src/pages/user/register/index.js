@@ -35,7 +35,7 @@ function Register(props) {
     <div className="page-register">
       <div className="home-logo">
         <img src="http://www.lzuntalented.cn/img/home-log.png" alt="" width="100%" />
-        <img src="http://www.lzuntalented.cn/img/heart-logo.png" alt="" height="48" />
+        <img src="http://cdn.xiaodingdang1.com/2025/01/18/9246969f8e9d4814b0f34512b4644480.jpg" alt="" height="48" />
       </div>
       <Form className="login-container">
         <Form.Item>

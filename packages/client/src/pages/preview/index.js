@@ -10,7 +10,7 @@ import html2canvas from 'html2canvas';
 import './index.scss';
 import { translateShowDataFromStore } from '@lzshow/utils';
 import LzLocalStorage from '../../utils/LocalStorage';
-import { getDetail } from '../../services/create';
+import { getDetail } from '../../services/opus';
 import { LOCALSTORAGE_PREVIEW_NAMESPACE, LOCALSTORAGE_PREVIEW_CHACHE } from '../../core/constants';
 import { getDomain, getUrlPrefix } from '../../services/apiConfig';
 
@@ -99,7 +99,7 @@ class Perview extends React.Component {
         ctx.fill();
 
         // const logoImg = new window.Image();
-        // logoImg.src = 'http://www.lzuntalented.cn/img/heart-logo.png';
+        // logoImg.src = 'http://cdn.xiaodingdang1.com/2025/01/18/9246969f8e9d4814b0f34512b4644480.jpg';
         // ctx.drawImage(logoImg, 49, panel.height - 49, 102, 48);
         ctx.fillStyle = '#fff';
         ctx.font = '32px Arial';

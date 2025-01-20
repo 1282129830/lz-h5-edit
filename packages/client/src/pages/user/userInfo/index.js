@@ -5,7 +5,8 @@ import Card from './components/Card';
 import EmptyCard from './components/EmptyCard';
 
 import './index.scss';
-import { getMyList } from '../../../services/template';
+// import { getMyList } from '../../../services/template';
+import { getList } from '../../../services/opus';
 import {
   CLICK_TYPE_DEFAULT, CLICK_TYPE_DOWNLOAD, CLICK_TYPE_EDIT, CLICK_TYPE_PREVIEW, CLICK_TYPE_TEMPLATE, CLICK_TYPE_DATA,
 } from './config';
@@ -32,7 +33,7 @@ function Register(props) {
 
   useEffect(() => {
     const result = [];
-    getMyList({ pageIndex }).then((res) => {
+    getList({ pageIndex }).then((res) => {
       const { list, total } = res;
       list.forEach(({ id, content, ...others }) => {
         const obj = JSON.parse(content);
