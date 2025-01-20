@@ -56,7 +56,7 @@ export function isDaily() {
 }
 
 export function getDomain() {
-  let result = 'http://show.lzuntalented.cn';
+  let result = 'https://h5.xiaodingdang1.com';
   const dailyHost = isDaily();
   if (isString(dailyHost)) {
     result = 'http://h5.lz.com';

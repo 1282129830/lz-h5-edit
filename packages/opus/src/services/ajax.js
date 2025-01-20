@@ -26,15 +26,19 @@ export default {
         onUploadProgress: null,
         // withCredentials: true,
         headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + localStorage.getItem('token'),
+          'clientid': '8ae3bc85-ea75-4b78-9ac3-a2cafad8e7d1',
+
           // 'lzcookie': queryString.stringify(cookie)
         },
       }).then((response) => {
         if (response) {
           const res = response.data;
-          // console.log(res);
-          if (res && res.errno === ajaxRetCode.success) {
+          if (res && res.code === 200) {
             resolve(res.data);
+          } else {
+            reject(res);
           }
         }
       }).catch(() => {});
@@ -47,18 +51,20 @@ export default {
       Axios({
         method: 'post',
         url: urlPath,
-        data: queryString.stringify(params),
+        data: params,
         onDownloadProgress: null,
         onUploadProgress: null,
         // withCredentials: true,
         headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + localStorage.getItem('token'),
+          'clientid': '8ae3bc85-ea75-4b78-9ac3-a2cafad8e7d1',
           // 'lzcookie': queryString.stringify(cookie)
         },
       }).then((response) => {
         if (response) {
           const res = response.data;
-          if (res && res.errno === ajaxRetCode.success) {
+          if (res && res.code === 200) {
             resolve(res.data);
           } else {
             reject();

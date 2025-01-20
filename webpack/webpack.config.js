@@ -136,6 +136,19 @@ module.exports = {
         target: 'http://localhost:8380', // 转发到后端服务
         pathRewrite: {'^/server' : ''}, // 重写路径
         changeOrigin: true // 支持跨域
+      },
+      '/assets/example': {
+        target: 'http://www.lzuntalented.cn', // 转发到后端服务
+        changeOrigin: true,
+      },
+      '/assets/fonts': {
+        target: 'http://www.lzuntalented.cn', // 转发到后端服务
+        changeOrigin: true,
+      },
+      '/cdn/font': {
+        target: 'http://cdn.xiaodingdang1.com', // 转发到后端服务
+        changeOrigin: true,
+        pathRewrite: { '^/cdn/font': '' },
       }
     }
   },

@@ -2,14 +2,14 @@ import { isString } from '@lzshow/utils';
 
 export default {
   create: {
-    getDetail: '/index/getDetail',
+    getDetail: '/opus/getDetail',
   },
   log: {
     saveForm: '/form/save',
   },
   activity: {
     trun: '/activity/trun',
-  },
+  }
 };
 
 export function isDaily() {
@@ -23,7 +23,7 @@ export function isDaily() {
 }
 
 export function getDomain() {
-  let result = 'http://show.lzuntalented.cn';
+  let result = 'https://h5.xiaodingdang1.com';
   // result = 'http://h5.lz.com/server';
   const dailyHost = isDaily();
   if (isString(dailyHost)) {

@@ -10,7 +10,6 @@ import {
 } from '../../services/opus';
 import apiConfig, { getUrlPrefix } from '../../services/apiConfig';
 import WithUserAuth from '../../components/WithUserAuth'
-import { connect } from 'react-redux';
 
 function Create(props) {
   const token = localStorage.getItem('token');
@@ -94,30 +93,44 @@ function Create(props) {
           key: 'tianxinyuanyue',
           name: '甜心中文',
           text: '文本示例',
-          example: 'http://www.lzuntalented.cn/assets/example/tianxinyuanyue.ttf',
-          url: 'http://www.lzuntalented.cn/assets/fonts/tianxinyuanyue.ttf',
+          example: 'http://localhost:9999/assets/example/tianxinyuanyue.ttf',
+          url: 'http://localhost:9999/assets/fonts/tianxinyuanyue.ttf',
         },
         {
           key: 'lanlanlanlandan',
           name: '【蛋蛋】懒懒懒懒蛋',
           text: '文本示例',
-          example: 'http://www.lzuntalented.cn/assets/example/lanlanlanlandan.ttf',
-          url: 'http://www.lzuntalented.cn/assets/fonts/lanlanlanlandan.ttf',
+          example: 'http://localhost:9999/assets/example/lanlanlanlandan.ttf',
+          url: 'http://localhost:9999/assets/fonts/lanlanlanlandan.ttf',
         },
         {
           key: 'shanmang1',
           name: '【阿苗】闪吗1',
           text: '文本示例',
-          example: 'http://www.lzuntalented.cn/assets/example/shanmang1.ttf',
-          url: 'http://www.lzuntalented.cn/assets/fonts/shanmang1.ttf',
+          example: 'http://localhost:9999/assets/example/shanmang1.ttf',
+          url: 'http://localhost:9999/assets/fonts/shanmang1.ttf',
         },
         {
           key: 'wencangshufang',
           name: '问藏书房',
           text: '文本示例',
-          example: 'http://www.lzuntalented.cn/assets/example/wencangshufang.ttf',
-          url: 'http://www.lzuntalented.cn/assets/fonts/wencangshufang.ttf',
+          example: 'http://localhost:9999/assets/example/wencangshufang.ttf',
+          url: 'http://localhost:9999/assets/fonts/wencangshufang.ttf',
         },
+        {
+          key: 'Daizen',
+          name: 'Daizen',
+          text: '文本示例',
+          example: 'https://cdn.xiaodingdang1.com/2025/01/20/3909d85519b6412ebdf0c99ffaf63192.ttf',
+          url: 'https://cdn.xiaodingdang1.com/2025/01/20/3909d85519b6412ebdf0c99ffaf63192.ttf',
+        },
+        {
+          key: 'Gabriola',
+          name: 'Gabriola',
+          text: '文本示例',
+          example: 'https://cdn.xiaodingdang1.com/2025/01/20/3909d85519b6412ebdf0c99ffaf63192.ttf',
+          url: 'https://cdn.xiaodingdang1.com/2025/01/20/3909d85519b6412ebdf0c99ffaf63192.ttf',
+        }
       ],
     },
   };

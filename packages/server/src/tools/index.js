@@ -53,7 +53,7 @@ export function createRandom(len = 6) {
 }
 
 export function getDomain() {
-  return isDev ? 'h5.lz.com' : 'show.lzuntalented.cn';
+  return isDev ? 'h5.lz.com' : 'h5.xiaodingdang1.com';
 }
 
 export function translateShowDataFromStore(store) {
