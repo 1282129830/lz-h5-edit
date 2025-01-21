@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-    <meta name="viewport" id="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="viewport" id="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
     <link rel="stylesheet" href="<%= jsPath %>.css">
     <link rel="stylesheet" href="https://cdn.staticfile.org/animate.css/3.7.0/animate.min.css" integrity="sha512-YTL2qFiv2wZNnC764l1DD5zN6lYxDzJ89Ss6zj6YoYIzr6+zwjdVKM1sUR+971X3h7qWCa9cPUBXyYqhOqWWLQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdn.staticfile.org/antd/3.23.6/antd.min.css" integrity="sha512-eAX82Gl4OTflPdlRvyfsqsjlMU4JaqkRNst/3dI5meg7Q86Bt+GOdFXHnW2IeMPwJDgBfBxhlS7xnJf+RecH1Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -24,14 +24,5 @@
 <body>
 <div id="root" style="min-height: 480px;"></div>
 <script src="<%= jsPath %>.js" type="text/javascript" ></script>
-<script>
-    var _hmt = _hmt || [];
-    (function() {
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?1a099d1ba2515146d6227ffe71ffe995";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-    })();
-</script>
 </body>
 </html>

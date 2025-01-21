@@ -40,7 +40,6 @@ function getCurrentVersion() {
 const version = getCurrentVersion();
 
 console.log(`当前构建版本号：${version}`);
-console.warn('当前构建生成的html文件中使用百度统计是开发者的，请及时替换成您自己的统计脚本!');
 
 module.exports = {
   entry: {
