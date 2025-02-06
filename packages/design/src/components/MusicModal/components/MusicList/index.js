@@ -5,40 +5,10 @@ import {
 } from 'antd';
 import Music from '../../../../utils/music';
 
-const defaultList = [
-  {
-    name: 'John Dreamer - Rise',
-    url: 'http://www.lzuntalented.cn/assets/music/rise.mp3',
-  },
-  {
-    name: '告白之夜',
-    url: 'http://www.lzuntalented.cn/assets/music/sweet.mp3',
-  },
-  {
-    name: 'Jingle Bells(圣诞)',
-    url: 'http://www.lzuntalented.cn/assets/music/chirmis.m4a',
-  },
-  {
-    name: '大哥 - 迷人的危险 (女生烟嗓版)',
-    url: 'http://www.lzuntalented.cn/assets/music/mirendeweixian.mp3',
-  },
-  {
-    name: '兔子牙 - 大田後生仔 (MV版片段)',
-    url: 'http://www.lzuntalented.cn/assets/music/datianhoushengzai.mp3',
-  },
-  {
-    name: '兔子牙 - 悬溺 (片段)',
-    url: 'http://www.lzuntalented.cn/assets/music/xuanni.mp3',
-  },
-  {
-    name: '婚礼进行曲',
-    url: 'http://www.lzuntalented.cn/assets/music/hljinxingqu.mp3',
-  },
-];
-
 export default class ImageList extends React.Component {
   static propTypes = {
     defaultList: PropTypes.array.isRequired,
+    fetchMusicList: PropTypes.func.isRequired,
   }
 
   constructor(props) {
@@ -49,6 +19,19 @@ export default class ImageList extends React.Component {
       play: false,
     };
     this.musicHandler = new Music();
+  }
+
+  componentDidMount() {
+    this.refresh();
+  }
+
+  refresh() {
+    const { defaultList = [], fetchMusicList } = this.props;
+    if (fetchMusicList) {
+      fetchMusicList().then((res) => {
+        this.setState({ list: [...defaultList].concat(res), play: false });
+      });
+    }
   }
 
   onPlay = obj => () => {

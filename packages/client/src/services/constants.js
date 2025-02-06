@@ -1,6 +1,6 @@
 export default {
   ajaxRetCode: {
-    success: 0,
-    noLogin: -999,
+    success: 200,
+    noLogin: 401,
   },
 };

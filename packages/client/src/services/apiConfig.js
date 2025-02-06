@@ -12,6 +12,7 @@ export default {
     cropImage: '/file/cropImage',
     parsePsd: '/file/parsePsd',
     getMyList: '/file/getMyList',
+    uploadMusic: '/file/uploadMusic',
   },
   // 商城相关
   mall: {
@@ -42,6 +43,14 @@ export default {
     getDetail: '/opus/getDetail',
     saveOrUpdate: '/opus/saveOrUpdate',
     remove: '/opus/remove',
+  },
+  music: {
+    getList: '/music/getList',
+    uploadMusic: '/music/uploadMusic',
+  },
+  font: {
+    getList: '/font/getList',
+    uploadFont: '/font/uploadFont',
   },
 };
 

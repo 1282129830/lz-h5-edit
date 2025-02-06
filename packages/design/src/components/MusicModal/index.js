@@ -15,7 +15,7 @@ function MusicModal(props) {
 
   const { libs } = config || {};
   const { music } = libs || {};
-  const { initData } = music || {};
+  const { initData, fetchMusicList } = music || {};
 
   const ref = useRef();
 
@@ -40,8 +40,9 @@ function MusicModal(props) {
       maskClosable
       visible={visible}
       title="音乐库"
-      options={[{ title: '音乐列表', comp: <MusicList ref={ref} defaultList={initData} onSelect={onChangeMusic} /> }]}
+      options={[{ title: '音乐列表', comp: <MusicList ref={ref} defaultList={initData} onSelect={onChangeMusic} fetchMusicList={fetchMusicList} /> }]}
     >
+      
       <Button type="danger" onClick={onClear}>清空音效</Button>
     </ModalContainer>
   );

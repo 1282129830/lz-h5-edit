@@ -1,23 +1,27 @@
 import React, { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
-import { COMPONENT_TYPE_PICTURE } from '@lzshow/constants';
 import ModalContainer from '../ModalContainer';
 import FontFamily from './components/FontFamily';
-import { addPageItemWithAttrs, changeActiveItemAttrs } from '../../store/action';
 import ConsumerContainer from '../../context/ConsumerContainer';
 
 import './index.scss';
 
 function ImageModal(props) {
   const {
-    onVisibleChange, visible, config, onChange,
+    onVisibleChange, visible, config, onChange, dispatch,
   } = props;
 
   const { libs } = config || {};
   const { font } = libs || {};
   const {
-    initData = [],
+    initData = [], fetchFontList,
   } = font || {};
+
+  useEffect(() => {
+    if (visible && fetchFontList) {
+      dispatch(fetchFontList());
+    }
+  }, [visible, fetchFontList, dispatch]);
 
   const onFontSelect = (key) => {
     onVisibleChange(false);
@@ -31,7 +35,7 @@ function ImageModal(props) {
       maskClosable
       visible={visible}
       title="字体库"
-      options={[{ title: '字体列表', comp: <FontFamily list={initData} onFontSelect={onFontSelect} /> }]}
+      options={[{ title: '字体列表', comp: <FontFamily list={initData} onFontSelect={onFontSelect}/> }]}
     />
   );
 }

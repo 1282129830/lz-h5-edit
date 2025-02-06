@@ -8,6 +8,8 @@ import {
 import {
   saveOrUpdate, getDetail
 } from '../../services/opus';
+import { getList as getMusicList } from '../../services/music';
+import { getList as getFontList } from '../../services/font';
 import apiConfig, { getUrlPrefix } from '../../services/apiConfig';
 import WithUserAuth from '../../components/WithUserAuth'
 
@@ -36,8 +38,8 @@ function Create(props) {
       fetchMyList: getMyPictureList,
       upLoadProps: {
         name: 'upFile',
-        accept: 'image/*',
-        action: `${getUrlPrefix()}${apiConfig.file.upload}`,
+        accept: 'audio/*,.mp3,.wav,.ogg,.m4a,.aac',
+        action: `${getUrlPrefix()}${apiConfig.file.uploadMusic}`,
         showUploadList: false,
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -48,6 +50,7 @@ function Create(props) {
     },
     // 音乐库
     music: {
+      fetchMusicList: getMusicList,
       initData: [
         {
           name: 'John Dreamer - Rise',
@@ -88,6 +91,7 @@ function Create(props) {
       ],
     },
     font: {
+      fetchFontList: getFontList,
       initData: [
         {
           key: 'tianxinyuanyue',

@@ -36,10 +36,10 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },
-  "homepage": "show.lzuntalented.cn",
+  "homepage": "h5.xiaodingdang1.com",
   "repository": {
     "type": "git",
-    "url": "https://github.com/lzuntalented/lz-h5-edit"
+    "url": "https://github.com/1282129830/lz-h5-edit"
   },
   "gitHead": "378665e51014950d6749ea8ca6ee3016560e60b0"
 }
