@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import ModalContainer from '../ModalContainer';
 import FontFamily from './components/FontFamily';

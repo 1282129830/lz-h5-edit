@@ -20,7 +20,7 @@ export default () => {
       <div className="banner">
         <div className="title-left">
           <h1 className="site-name">槿墨H5</h1>
-          <div className="sub-title">是一款专为设计师打造的H5请帖模板制作工具，旨在提供一个简洁、高效的创作平台，帮助设计师快速制作和发布精美的请帖H5页面。该工具集成了丰富的模板库和高度自定义的设计选项，使得即使没有编程经验的设计师也能轻松上手。</div>
+          <div className="sub-title">是一款专为设计师打造的H5模板制作工具，旨在提供一个简洁、高效的创作平台，帮助设计师快速制作和发布精美的请帖H5页面。该工具集成了丰富的模板库和高度自定义的设计选项，使得即使没有编程经验的设计师也能轻松上手。</div>
           <div className="line" />
           <div className="btn-container">
             <a href="#/list" className="m-r-12">
