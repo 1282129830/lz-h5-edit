@@ -1,16 +1,4 @@
-# 随心秀(react版h5微场景编辑器)
-
-## 当前正在进行的工作
-> 项目分离，将核心编辑库独立成一个模块，通过npm可以一键引入
-
-## 目标
-> 打造一款现象级微场景编辑器 [演示地址](http://show.lzuntalented.cn)
-
-### 预览
-![](http://www.lzuntalented.cn/img/edit.gif)
-
-### 手机扫码预览
-![手机扫描体验](http://www.lzuntalented.cn/img/eq-11.png)
+# 槿墨H5(react版h5微场景编辑器)
 
 ## 使用
 
@@ -43,11 +31,6 @@ npm run webpack
 // 新增物料
 npm run add
 ```
-
-## 开发文档
-* [快速开始](http://blog.lzuntalented.cn/sxx/%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B.html)
-* [项目解析](http://blog.lzuntalented.cn/sxx/%E9%A1%B9%E7%9B%AE%E8%A7%A3%E6%9E%90.html)
-
 
 ### 功能
 
@@ -124,12 +107,5 @@ registerComponent(自定义组件唯一标识字符串, 物料组件);
 * 圣诞节模板
 * 元旦节模板
 * 2019总结模板
-
-### 交流群
-
-
-| QQ交流群  |
-| ----  |
-| ![QQ交流群](http://www.lzuntalented.cn/img/sxx-qq.png) |
 
 Give a ⭐️ if this project helped you!
