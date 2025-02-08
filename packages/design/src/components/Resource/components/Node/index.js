@@ -53,22 +53,25 @@ export default function Node(props) {
           </Row>
           <Row className="m-t-8">
             <Col span={8}>
-              <Button type="primary" onClick={onAddComponent(COMPONENT_TYPE_MAP)}>地图</Button>
+              <Button onClick={onAddComponent(COMPONENT_TYPE_MAP)}>地图</Button>
             </Col>
-            <Col span={8}>
+            {/* <Col span={8}>
               <Button type="primary" onClick={onAddComponent(COMPONENT_TYPE_QQ_VIDEO)}>QQ通话</Button>
+            </Col> */}
+            <Col span={8}>
+              <Button onClick={onAddComponent(COMPONENT_TYPE_LINK)}>链接</Button>
             </Col>
             <Col span={8}>
-              <Button type="primary" onClick={onAddComponent(COMPONENT_TYPE_VIDEO)}>视频</Button>
+              <Button onClick={onAddComponent(COMPONENT_TYPE_VIDEO)}>视频</Button>
             </Col>
           </Row>
           <Row className="m-t-8">
             <Col span={8}>
               <Button onClick={onAddComponent(COMPONENT_TYPE_TEXT_TYPED)}>文本打字机</Button>
             </Col>
-            <Col span={8}>
+            {/* <Col span={8}>
               <Button onClick={onAddComponent(COMPONENT_TYPE_LINK)}>链接</Button>
-            </Col>
+            </Col> */}
           </Row>
           <div className="space-line" />
           <Row className="node-comp-preview">
