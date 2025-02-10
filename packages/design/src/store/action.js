@@ -6,11 +6,12 @@ import {
   CHANGE_ALL_PAGE_BACKGROUND, STORE_RESET_TO_EDIT, STORE_CHANGE_BACK_MUSIC_URL, ADD_ACTIVE_EDIT_KEY,
   STORE_GROUP_ACTIVE_EDIT_KEYS, CHANGE_ANIMATION, STORE_GROUP_SPLIT, STORE_INIT_TO_EDIT,
   ACTION_COPY_PAGE, ACTION_COPY_ITEM, ACTION_DELETE_PAGE, ACTION_ADD_PAGE_ITEM_WITH_ATTRS,
-  ACTION_INIT_HISTORY_STORE, ACTION_ADD_PAGE_ITEM_WITH_SIZE, ACTION_CHANGE_ITEM_BORDER,
+  ACTION_ADD_PAGE_ITEM_WITH_SIZE, ACTION_INIT_HISTORY_STORE, ACTION_CHANGE_ITEM_BORDER,
   ACTION_CHANGE_ITEM_NAME, ACTION_RESORT_GROUP_ITEM, ACTION_PAGE_MOVE_DOWN, ACTION_PAGE_MOVE_UP,
   ACTION_ANIMATES_ADD, ACTION_ANIMATES_REMOVE, ACTION_ANIMATES_CHANGE, ACTION_ANIMATES_PREVIEW,
   ACTION_ANIMATES_HOVER, ACTION_ANIMATES_EMPTY,
   ACTION_ANIMATES_PREVIEW_ONE, ACTION_CHANGE_ACTIVE_ITEM_ATTRS, ACTION_ADD_PSD,
+  CHANGE_ITEM_ROTATE,
 } from '@lzshow/constants';
 
 export function startMove(value) {
@@ -58,8 +59,12 @@ export function changeAttrs(attrs, key) {
   return { type: CHANGE_ITEM_ATTR, value: { attrs, key } };
 }
 
-export function changeBaseStyle(style, key) {
-  return { type: CHANGE_ITEM_BASE_STYLE, value: { style, key } };
+export function changeBaseStyle(style, activeEditKey) {
+  return {
+    type: CHANGE_ITEM_BASE_STYLE,
+    style,
+    activeEditKey,
+  };
 }
 
 export function addPage() {
@@ -200,4 +205,8 @@ export function changeActiveItemAttrs(value) {
 
 export function addPsd(value) {
   return { type: ACTION_ADD_PSD, value };
+}
+
+export function changeItemRotate(value) {
+  return { type: CHANGE_ITEM_ROTATE, value };
 }

@@ -54,19 +54,6 @@ function Register(props) {
         </Col>
         <Col span={12} className="text-center cursor-pointer card-op-item">
           <span className="hove-span" onClick={onClick(CLICK_TYPE_DATA, id)}><Icon type="line-chart" />数据</span>
-          {
-            // !template
-            //   ? (
-            //     <Tooltip title="标记为模板，供他人可使用">
-            //       <span className="hove-span" onClick={onClick(CLICK_TYPE_TEMPLATE, id)}><Icon type="tag" />模板</span>
-            //     </Tooltip>
-            //   )
-            //   : (
-            //     <Tooltip title="取消该模板标记，仅供自己使用">
-            //       <span className="hove-span active" onClick={onClick(CLICK_TYPE_TEMPLATE, id)}><Icon type="tag" />模板</span>
-            //     </Tooltip>
-            //   )
-          }
         </Col>
       </Row>
     </div>

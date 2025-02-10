@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Draggable from 'react-draggable'; // The default
-import { Tabs, Button, Collapse } from 'antd';
+import { Tabs, Button, Collapse, Row, Col, Switch, InputNumber } from 'antd';
 
 import './index.scss';
 import { getComponentStyleMap } from '@lzshow/core';
@@ -64,6 +64,76 @@ class Setting extends React.Component {
     return null;
   }
 
+  renderMobileConfig() {
+    const { item } = this.props;
+    if (!item) return null;
+    
+    return (
+      <Collapse>
+        <Collapse.Panel header="移动端编辑权限" key="mobile">
+          <Row align="middle" type="flex" gutter={8}>
+            <Col span={8}>允许编辑</Col>
+            <Col span={16}>
+              <Switch 
+                checked={item.mobileEdit?.editable} 
+                onChange={this.setMobileEditPermission('editable')}
+              />
+            </Col>
+          </Row>
+          {item.mobileEdit?.editable && (
+            <>
+              <Row align="middle" type="flex" gutter={8} className="m-t-8">
+                <Col span={8}>文字限制</Col>
+                <Col span={16}>
+                  <InputNumber
+                    min={0}
+                    value={item.mobileEdit?.constraints?.maxLength}
+                    onChange={this.setMobileEditConstraint('maxLength')}
+                  />
+                </Col>
+              </Row>
+              <Row align="middle" type="flex" gutter={8} className="m-t-8">
+                <Col span={8}>图片大小(MB)</Col>
+                <Col span={16}>
+                  <InputNumber
+                    min={0}
+                    value={item.mobileEdit?.constraints?.imageSize}
+                    onChange={this.setMobileEditConstraint('imageSize')}
+                  />
+                </Col>
+              </Row>
+            </>
+          )}
+        </Collapse.Panel>
+      </Collapse>
+    );
+  }
+
+  setMobileEditPermission = key => value => {
+    const { dispatch, activeEditKey } = this.props;
+    dispatch(changeBaseStyle({
+      mobileEdit: {
+        ...this.props.item?.mobileEdit,
+        [key]: value,
+        constraints: this.props.item?.mobileEdit?.constraints || {}
+      }
+    }, activeEditKey));
+  }
+
+  setMobileEditConstraint = key => value => {
+    const { dispatch, activeEditKey } = this.props;
+    dispatch(changeBaseStyle({
+      mobileEdit: {
+        ...this.props.item?.mobileEdit,
+        editable: true,
+        constraints: {
+          ...this.props.item?.mobileEdit?.constraints,
+          [key]: value,
+        }
+      }
+    }, activeEditKey));
+  }
+
   render() {
     const { activeEditKey, item } = this.props;
     return (
@@ -85,41 +155,32 @@ class Setting extends React.Component {
           <Tabs className="tabs-content" defaultActiveKey="1">
             <TabPane tab="样式" key="1">
               <div className="tabs-content-overflow">
-                {
-                    this.renderComponent()
-                }
+                {this.renderComponent()}
                 <Collapse>
                   <Collapse.Panel header="边框" key="1">
-                    {
-                item && <SettingBorder {...item} setBorder={this.setBorder} />
-              }
+                    {item && <SettingBorder {...item} setBorder={this.setBorder} />}
                   </Collapse.Panel>
                   <Collapse.Panel header="位置与尺寸" key="3">
-                    {
-                item && (
-                <SettingPosition
-                  {...item}
-                  dispatchAction={this.dispatchAction}
-                  setBaseStyle={this.setBaseStyle}
-                />
-                )
-              }
+                    {item && (
+                      <SettingPosition
+                        {...item}
+                        dispatchAction={this.dispatchAction}
+                        setBaseStyle={this.setBaseStyle}
+                      />
+                    )}
                   </Collapse.Panel>
                 </Collapse>
+                {this.renderMobileConfig()}
                 <div className="text-center m-t-12 m-b-12">
                   <Button onClick={this.onRemove} type="danger">删除元素</Button>
                 </div>
               </div>
-
             </TabPane>
-            {
-              activeEditKey.length === 1
-              && (
+            {activeEditKey.length === 1 && (
               <TabPane tab="动画" key="2">
                 <Animate />
               </TabPane>
-              )
-            }
+            )}
           </Tabs>
         </section>
       </Draggable>

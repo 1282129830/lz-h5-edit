@@ -352,12 +352,43 @@ function changeActiveItemAttrs(store, action) {
 }
 
 function changeBaseStyle(store, action) {
-  const { type, value } = action;
-  const obj = store.toJS();
-  if (type === CHANGE_ITEM_BASE_STYLE) {
-    const { style, key } = value;
+  const { type, style, activeEditKey } = action;
+  if (type === CHANGE_ITEM_BASE_STYLE && style) {
+    const obj = store.toJS();
     const { editList } = obj;
-    Object.assign(editList[key].rect, style);
+    if (Array.isArray(activeEditKey)) {
+      activeEditKey.forEach((key) => {
+        const item = editList[key];
+        if (item) {
+          if (style.mobileEdit) {
+            item.mobileEdit = {
+              ...item.mobileEdit,
+              ...style.mobileEdit,
+              constraints: {
+                ...item.mobileEdit?.constraints,
+                ...style.mobileEdit.constraints
+              }
+            };
+          } else {
+            Object.assign(item, style);
+          }
+        }
+      });
+    } else if (activeEditKey && editList[activeEditKey]) {
+      const item = editList[activeEditKey];
+      if (style.mobileEdit) {
+        item.mobileEdit = {
+          ...item.mobileEdit,
+          ...style.mobileEdit,
+          constraints: {
+            ...item.mobileEdit?.constraints,
+            ...style.mobileEdit.constraints
+          }
+        };
+      } else {
+        Object.assign(item, style);
+      }
+    }
     return fromJS(obj);
   }
   return null;
@@ -519,7 +550,6 @@ function changeBackGround(store, action) {
 
 function resetStore(store, action) {
   const { type: actionType, value } = action;
-  // const obj = store.toJS();
   if (actionType === STORE_RESET_TO_EDIT) {
     const { list, backGroundImage } = value;
     const pages = [];
@@ -528,12 +558,13 @@ function resetStore(store, action) {
       const page = [];
       it.forEach((item, i) => {
         const {
-          type,
+          type, mobileEdit,
         } = item;
         const uniqueId = createId();
         page.push(uniqueId);
         editList[uniqueId] = {
           name: `${getComponentDefaultName(type)}${i}`,
+          mobileEdit: mobileEdit || { editable: false, constraints: {} },
           ...JSON.parse(JSON.stringify(item)),
         };
       });

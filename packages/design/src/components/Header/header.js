@@ -174,9 +174,7 @@ class Header extends React.Component {
       showMusicModal, showBgChoseModal, currentClipImage,
     } = this.state;
     return (
-      <section
-        className="page-header-container"
-      >
+      <section className="page-header-container">
         <div className="example-container">
           <img onClick={() => { window.location.hash = '/'; }} src="http://cdn.xiaodingdang1.com/2025/01/18/9246969f8e9d4814b0f34512b4644480.jpg" alt="" height="48" />
         </div>
